@@ -122,7 +122,7 @@ Give a ⭐️ if you like this project!
 
 
 - [X] Project 1: Setup and controllers.
-- [x] Project 2: Controllers specs.
+- [ ] Project 2: Controllers specs.
 - [x] Project 3: Creating a data model.
 - [x] Project 4: Processing data in models.
 - [ ] Project 5: Views.
