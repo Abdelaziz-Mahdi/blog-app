@@ -1,1 +1,14 @@
-<h1>Here is a list of user posts<h1>
+<%= link_to user_path(params[:user_id]) do %>
+<%= render partial: "users/user", locals: { user: User.find(params[:user_id]) } %>
+<% end %>
+<ul>
+  <% @posts.each_with_index do |post , i| %>
+    <% if post.author_id == params[:user_id].to_i %>
+      <%= link_to user_post_path(params[:id].to_i, post.id) do %>
+        <%= render partial: "users/post", locals: { post: post, i: i } %>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
+<button>Pagination</button>
