@@ -1,1 +1,9 @@
-<h1>Here is a list of users<h1>
+<ul>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+      <li>
+        <%= render partial: "user", locals: { user: user } %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
