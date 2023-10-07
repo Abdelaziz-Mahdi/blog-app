@@ -1,1 +1,15 @@
-<h1>Here is a user full post<h1>
+<article>
+  <div>
+      <h4><%= @post.title %> by <%= @post.author.name %></h4>
+      <h5>
+        Comments: <%= @post.comments_counter %>,
+        Likes: <%= @post.likes_counter %>
+      </h5>
+  </div>
+  <p><%= @post.text %></p>
+</article>
+<ul>
+    <%= render partial: "comment", locals: { comments: @post.comments} %>
+</ul>
+
+<%= link_to 'Back', :back %>
