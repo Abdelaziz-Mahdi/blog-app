@@ -1,0 +1,6 @@
+<% comments.each do |comment| %>
+  <li>
+    <span class="commenter"><%= comment.author.name %>: </span>
+    <span class="content"><%= comment.text %></span>
+  </li>
+<% end %>
