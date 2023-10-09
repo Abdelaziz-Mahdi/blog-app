@@ -1,15 +1,19 @@
-<article>
-  <div>
-      <h4><%= @post.title %> by <%= @post.author.name %></h4>
-      <h5>
-        Comments: <%= @post.comments_counter %>,
-        Likes: <%= @post.likes_counter %>
-      </h5>
-  </div>
-  <p><%= @post.text %></p>
-</article>
-<ul>
+<%= link_to :back do %>
+  <article class="card mt-3 ms-3 me-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title"><%= @post.title %> by <%= @post.author.name %></h5>
+        <p class="card-text text-end">
+          <small class="text-body-secondary">
+            Comments: <%= @post.comments_counter %>,
+            Likes: <%= @post.likes_counter %>
+          </small>
+        </p>
+      </div>
+      <p class="card-text"><%= @post.text %></p>
+    </div>
+  </article>
+  <% if @post.comments.present? %>
     <%= render partial: "comment", locals: { comments: @post.comments} %>
-</ul>
-
-<%= link_to 'Back', :back %>
+  <% end %>
+<% end %>
