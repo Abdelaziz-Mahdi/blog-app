@@ -9,9 +9,11 @@
 </section>
 <ul>
   <% @user.three_most_recent_posts.each_with_index do |post , i| %>
-    <%= link_to user_post_path(params[:id].to_i, post.id) do %>
-     <%= render partial: "post", locals: { post: post, i: i } %>
-    <% end %>
+    <li>
+      <%= link_to user_post_path(params[:id].to_i, post.id) do %>
+      <%= render partial: "post", locals: { post: post, i: i } %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 <button><%= link_to "See all posts", user_posts_path(@user) %></button>

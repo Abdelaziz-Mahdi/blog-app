@@ -1,11 +1,9 @@
-      <li>
-            <h4><%= post.title %> #<%= i %></h4>
-            <p><%= post.text %></p>
-            <h5>
-              Comments: <%= post.comments_counter %>,
-              Likes: <%= post.likes_counter %>
-            </h5>
-            <ul>
-                <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
-            </ul>
-      </li>
+<h4><%= post.title %> #<%= i %></h4>
+<p><%= post.text %></p>
+<h5>
+  Comments: <%= post.comments_counter %>,
+  Likes: <%= post.likes_counter %>
+</h5>
+<ul>
+    <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
+</ul>
