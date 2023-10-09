@@ -1,5 +1,15 @@
-<%= image_tag(user.photo, class: "") %>
-<div>
-  <h2><%= user.name %></h2>
-  <h4>Number of posts: <%= user.posts_counter %></h4>
+<div class="row m-3">
+  <div class="col-3 d-flex">
+        <%= image_tag(user.photo, class: "img-fluid") %>
+  </div>
+  <div class="col card m-3 ps-3 ms-3">
+    <div class="row g-0">
+      <div class="">
+        <div class="card-body">
+          <h2 class="card-title fs-1"><%= user.name %></h2>
+          <p class="card-text text-end fs-4"><small class="text-body-secondary">Number of posts: <%= user.posts_counter %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
