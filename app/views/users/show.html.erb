@@ -16,4 +16,6 @@
     </li>
   <% end %>
 </ul>
-<button><%= link_to "See all posts", user_posts_path(@user) %></button>
+<div class="text-center mb-4">
+<%= link_to "See all posts", user_posts_path(@user), class: "border p-2"%>
+</div>
