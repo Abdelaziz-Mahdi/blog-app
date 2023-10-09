@@ -23,3 +23,7 @@
   text-decoration: none !important;
   color: inherit !important;
  }
+
+ ul {
+  padding: 0 !important;
+ }
