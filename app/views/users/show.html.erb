@@ -1,1 +1,21 @@
-<h1>Here is a user profile<h1>
+<%= link_to users_path do %>
+<%= render partial: "user", locals: { user: User.find(params[:id]) } %>
+<% end %>
+<section class="card m-3">
+  <div class="card-body">
+    <h5 class="card-title">Bio</h5>
+    <p class="card-text"><%= @user.bio %></p>
+  </div>
+</section>
+<ul>
+  <% @user.three_most_recent_posts.each_with_index do |post , i| %>
+    <li>
+      <%= link_to user_post_path(params[:id].to_i, post.id) do %>
+      <%= render partial: "post", locals: { post: post, i: i } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<div class="text-center mb-4">
+<%= link_to "See all posts", user_posts_path(@user), class: "border p-2"%>
+</div>
