@@ -1,10 +1,12 @@
 <%= link_to users_path do %>
 <%= render partial: "user", locals: { user: User.find(params[:id]) } %>
 <% end %>
-<div>
-  <h3>Bio</h3>
-  <p><%= @user.bio %></p>
-</div>
+<section class="card m-3">
+  <div class="card-body">
+    <h5 class="card-title">Bio</h5>
+    <p class="card-text"><%= @user.bio %></p>
+  </div>
+</section>
 <ul>
   <% @user.three_most_recent_posts.each_with_index do |post , i| %>
     <%= link_to user_post_path(params[:id].to_i, post.id) do %>
