@@ -6,12 +6,13 @@
     <% if post.author_id == params[:user_id].to_i %>
       <%= link_to user_post_path(params[:id].to_i, post.id) do %>
         <%= render partial: "users/post", locals: { post: post, i: i } %>
-        <ul>
+        <% if post.last_five_comments.present? %>
           <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
-        </ul>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
 </ul>
-
-<button>Pagination</button>
+<div class="text-center mb-4">
+  <a class="border p-2">Pagination</a>
+</div>
