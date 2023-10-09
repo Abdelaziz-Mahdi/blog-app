@@ -1,9 +1,9 @@
 <ul>
   <% @users.each do |user| %>
-    <%= link_to user_path(user) do %>
-      <li>
+    <li>
+      <%= link_to user_path(user) do %>
         <%= render partial: "user", locals: { user: user } %>
-      </li>
-    <% end %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
