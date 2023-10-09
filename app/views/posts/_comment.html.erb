@@ -1,6 +1,8 @@
-<% comments.each do |comment| %>
-  <li>
-    <span class="commenter"><%= comment.author.name %>: </span>
-    <span class="content"><%= comment.text %></span>
-  </li>
-<% end %>
+<ul class="card ms-3 me-3 mt-1 p-2">
+  <% comments.each do |comment| %>
+    <li>
+      <span class="p1"><%= comment.author.name %>: </span>
+      <span class="p1"><%= comment.text %></span>
+    </li>
+  <% end %>
+</ul>
