@@ -4,7 +4,7 @@
 <ul>
   <% @posts.each_with_index do |post , i| %>
     <% if post.author_id == params[:user_id].to_i %>
-      <%= link_to user_post_path(params[:id].to_i, post.id) do %>
+      <%= link_to user_post_path(params[:user_id].to_i, post.id) do %>
         <%= render partial: "users/post", locals: { post: post, i: i } %>
         <% if post.last_five_comments.present? %>
           <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
