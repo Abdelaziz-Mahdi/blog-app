@@ -1,0 +1,18 @@
+<%= link_to user_path(params[:user_id]) do %>
+<%= render partial: "users/user", locals: { user: User.find(params[:user_id]) } %>
+<% end %>
+<section class="m-3">
+  <h1>New Post</h1>
+  <%= form_with model: @post, url: "/users/#{params[:user_id]}/posts/new" do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+      <%= form.label :text %><br>
+      <%= form.text_area :text, cols: 50 %>
+    </div>
+    <div>
+      <%= form.submit "Post" %>
+    </div>
+  <% end %>
+</section>
