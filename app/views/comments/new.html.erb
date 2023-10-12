@@ -1,0 +1,13 @@
+<%= form_with model: @comment, url: "/users/#{params[:user_id]}/posts/#{params[:post_id]}/comments/new" do |form| %>
+  <div>
+    <br>
+    <%= form.label :text, "Add your comment"%><br>
+    <%= form.text_area :text, cols: 50 %> <br>
+  </div>
+  <div>
+    <button class="btn btn-secondary" type="submit" name="commit" value="Comment">Comment</button>
+    <%= link_to :back do %>
+      <button type="button" class="btn btn-secondary">Back</button>
+    <% end %>
+  </div>
+<% end %>
