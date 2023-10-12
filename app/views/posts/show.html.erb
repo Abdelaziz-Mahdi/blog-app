@@ -1,4 +1,4 @@
-<%= link_to :back do %>
+<%= link_to user_posts_path(params[:user_id]) do %>
   <article class="card mt-3 ms-3 me-3">
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -13,6 +13,7 @@
       <p class="card-text"><%= @post.text %></p>
     </div>
   </article>
+  <%= link_to "Add comment", "/users/#{params[:user_id]}/posts/#{@post.id}/comments/new", class: "btn btn-primary m-3" %>
   <% if @post.comments.present? %>
     <%= render partial: "comment", locals: { comments: @post.comments} %>
   <% end %>
