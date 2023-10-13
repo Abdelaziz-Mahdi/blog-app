@@ -15,24 +15,21 @@
   </article>
 <% end %>
 
-<section class="like m-3">
-  <% like_id = User.find(params[:user_id]).likes.find_by(post_id: params[:id]) %>
-  <% if like_id === nil %>
-    <div class="like-btn-form">
-      <%= form_with model: @like, url: "/users/#{params[:user_id]}/posts/#{params[:id]}", method: :post do |form| %>
-        <%= form.submit "Like", class: "btn btn-primary" %>
-      <% end %>
+<section class="btn-container d-flex">
+  <% @like = User.find(params[:user_id]).likes.find_by(post_id: params[:id]) %>
+  <%= render partial: "posts/like", locals: { like: @like, user_id: params[:user_id], post_id: params[:id] } %>
+  <section class="btn-create-comments mt-3">
+    <div class="btn-to-show-and-hide-create-comments-section">
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Add a comment
+      </button>
     </div>
-  <% else %>
-    <div class="dislike-btn-form">
-      <%= form_with model: @like, url: "/users/#{params[:user_id]}/posts/#{params[:id]}/#{like_id.id}", method: :delete do |form| %>
-        <%= form.submit "Dislike", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  <% end %>
+  </section>
 </section>
 
-<section>
+<%= render partial: "comments/create"%>
+
+<section class="show-comments">
   <% if @post.comments.present? %>
     <%= render partial: "comment", locals: { comments: @post.comments } %>
   <% end %>
