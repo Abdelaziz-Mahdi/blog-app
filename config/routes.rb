@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]   do
     resources :posts, only: [:index, :new, :show] do
-    resources :likes, only: [:create], path: ""
-    resources :likes, only: [:destroy], path: ""
-      resources :comments, only: [:new]
-      resources :comments, only: [:create], path: "comments/new"
+      resources :likes, only: [:create], path: ""
+      resources :likes, only: [:destroy], path: ""
+      resources :comments, only: [:create], path: "comment"
     end
     resources :posts, only: [:create], path: "posts/new"
   end
