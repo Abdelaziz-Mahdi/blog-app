@@ -1,4 +1,4 @@
-<%= link_to :back do %>
+<%= link_to user_posts_path(params[:user_id]) do %>
   <article class="card mt-3 ms-3 me-3">
     <div class="card-body">
       <div class="d-flex justify-content-between">
@@ -13,7 +13,22 @@
       <p class="card-text"><%= @post.text %></p>
     </div>
   </article>
-  <% if @post.comments.present? %>
-    <%= render partial: "comment", locals: { comments: @post.comments} %>
-  <% end %>
 <% end %>
+
+<section class="btn-container d-flex">
+  <% @like = User.find(params[:user_id]).likes.find_by(post_id: params[:id]) %>
+  <%= render partial: "posts/like", locals: { like: @like, user_id: params[:user_id], post_id: params[:id] } %>
+  <div class="mt-3">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Add a comment
+    </button>
+  </div>
+</section>
+
+<%= render partial: "comments/create"%>
+
+<section class="show-comments">
+  <% if @post.comments.present? %>
+    <%= render partial: "comment", locals: { comments: @post.comments } %>
+  <% end %>
+</section>

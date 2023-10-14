@@ -1,0 +1,15 @@
+<section class="btn-like m-3">
+  <% if like === nil %>
+    <div class="like-btn-form">
+      <%= form_with url: "/users/#{user_id}/posts/#{post_id}", method: :post do |form| %>
+        <%= form.submit "Like", class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="dislike-btn-form">
+      <%= form_with url: "/users/#{user_id}/posts/#{post_id}/#{like.id}", method: :delete do |form| %>
+        <%= form.submit "Dislike", class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  <% end %>
+</section>

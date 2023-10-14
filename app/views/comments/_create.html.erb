@@ -1,0 +1,18 @@
+<section class="create-comments m-3">
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="new-comment-form">
+        <%= form_with url: "/users/#{params[:user_id]}/posts/#{params[:id]}/comment", method: :post, data: { turbo: true } do |form| %>
+          <div>
+            <br>
+            <%= form.label :text, hidden: true %>
+            <%= form.text_area :text, name: "comment[text]", cols: 50, placeholder: "Add a new comment", class: "form-control" %> <br>
+          </div>
+          <div>
+            <button class="btn btn-outline-secondary" type="submit" name="commit" value="Comment">Comment</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
