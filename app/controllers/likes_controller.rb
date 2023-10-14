@@ -12,10 +12,4 @@ class LikesController < ApplicationController
     @like.destroy
     redirect_to request.referrer
   end
-
-  private
-
-  def like_params
-    params.require(:like).permit(:user_id, :id)
-  end
 end
