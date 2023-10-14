@@ -7,6 +7,11 @@
     <p class="card-text"><%= @user.bio %></p>
   </div>
 </section>
+
+<div class="d-flex ms-3 me-3">
+    <%= link_to "Add New Post", new_user_post_path(@user), class: "col btn border-secondary-subtle"%>
+</div>
+
 <ul>
   <% @user.three_most_recent_posts.each_with_index do |post , i| %>
     <li>
@@ -16,6 +21,6 @@
     </li>
   <% end %>
 </ul>
-<div class="text-center mb-4">
-<%= link_to "See all posts", user_posts_path(@user), class: "border p-2"%>
+<div class="text-center m-3 mb-4">
+<%= link_to "See all posts", user_posts_path(@user), class: "btn border-secondary-subtle p-2"%>
 </div>
