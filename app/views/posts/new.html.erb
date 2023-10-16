@@ -3,7 +3,7 @@
 <% end %>
 <section class="m-3">
   <h1>New Post</h1>
-  <%= form_with model: @post, url: "/users/#{params[:user_id]}/posts/new" do |form| %>
+  <%= form_with model: @post, url: "/users/#{params[:user_id]}/posts" do |form| %>
     <div>
       <%= form.label :title, hidden: true %><br>
       <%= form.text_field :title, placeholder: "Add Post Title", class: "btn border-secondary-subtle text-start mb-2"  %>
