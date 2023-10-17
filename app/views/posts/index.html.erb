@@ -4,15 +4,19 @@
 <ul>
   <% @posts.each_with_index do |post , i| %>
     <% if post.author_id == params[:user_id].to_i %>
-      <%= link_to user_post_path(params[:user_id].to_i, post.id) do %>
-        <%= render partial: "users/post", locals: { post: post, i: i } %>
-        <% if post.last_five_comments.present? %>
-          <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
+      <li>
+        <%= link_to user_post_path(params[:user_id].to_i, post.id) do %>
+          <%= render partial: "users/post", locals: { post: post, i: i } %>
+          <% if post.last_five_comments.present? %>
+            <%= render partial: "posts/comment", locals: { comments: post.last_five_comments } %>
+          <% end %>
         <% end %>
-      <% end %>
+      </li>
     <% end %>
   <% end %>
 </ul>
 <div class="text-center mb-4">
-  <a href="#" class="btn btn-outline-secondary p-2">Pagination</a>
+  <div class="d-flex justify-content-center p-2">
+    <%= paginate @posts %>
+  </div>
 </div>
