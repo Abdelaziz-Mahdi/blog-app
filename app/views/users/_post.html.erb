@@ -1,10 +1,10 @@
-<section class="card mt-3 ms-3 me-3">
+<div class="card mt-3 ms-3 me-3">
   <div class="card-body">
     <h5 class="card-title"><%= post.title %> #<%= i %></h5>
-    <p class="card-text"><%= post.text %></p>
+    <p class="card-text"><%= post.text[0,100]+" ..." %></p>
     <p class="card-text text-end"><small class="text-body-secondary">
       Comments: <%= post.comments_counter %>,
       Likes: <%= post.likes_counter %>
     </small></p>
   </div>
-</section>
+</div>
