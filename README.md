@@ -127,7 +127,7 @@ Give a ⭐️ if you like this project!
 - [x] Project 4: Processing data in models.
 - [x] Project 5: Views.
 - [x] Project 6: Forms
-- [ ] Project 7: Validations, Model specs, and n+1 problems.
+- [X] Project 7: Validations, Model specs, and n+1 problems.
 - [ ] Project 8: Add Devise.
 - [ ] Project 9: Add authorization rules.
 - [ ] Project 10: Integration specs for Views.
