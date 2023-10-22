@@ -1,5 +1,5 @@
 <%= link_to user_path(params[:user_id]) do %>
-<%= render partial: "users/user", locals: { user: User.find(params[:user_id]) } %>
+  <%= render partial: "users/user", locals: { user: User.find(params[:user_id]) } %>
 <% end %>
 <ul>
   <% @posts.each_with_index do |post , i| %>
