@@ -21,6 +21,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.includes(:author, :likes, comments: [:author] ).find_by_id(params[:id])
+    @post_comments = @post.comments
+    @post_like = @post.likes[0]
+    @post_author = @post.author
+    @post_comment_author = @post_comments.map(&:author).flatten
   end
 end
