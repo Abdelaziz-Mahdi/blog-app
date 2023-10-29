@@ -1,4 +1,29 @@
+require 'capybara/rspec'
+require 'selenium-webdriver'
 require 'active_support/core_ext/integer/time'
+
+Selenium::WebDriver::Service.driver_path = 'E:\Downloads\chromedriver_win32\chromedriver.exe'
+
+Capybara.register_driver :chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--disable-gpu')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--disable-popup-blocking')
+  options.add_argument('--disable-translate')
+  options.add_argument('--disable-infobars')
+  options.add_argument('--disable-extensions')
+  options.add_argument('--disable-web-security')
+  options.add_argument('--disable-browser-side-navigation')
+  options.add_argument('--remote-debugging-port=9222')
+  options.add_argument('--window-size=1920,1080')
+  options.binary = 'E:\Downloads\chrome-win32\chrome.exe'
+  
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :chrome
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
