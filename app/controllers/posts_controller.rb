@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if user_signed_in? && current_user.id == params[:user_id].to_i
+      @post = Post.new
+    else
+      redirect_to request.referrer
+      flash[:warning] = 'You are not authorized to view this page!'
+    end
   end
 
   def create
