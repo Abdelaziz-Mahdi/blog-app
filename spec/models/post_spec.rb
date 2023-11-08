@@ -46,4 +46,14 @@ RSpec.describe Post, type: :model do
     Comment.create(author: first_user, post: first_post, text: 'This is my sixth comment')
     expect(subject.last_five_comments).to eq(subject.comments.order(created_at: :desc).limit(5))
   end
+
+  it "update_posts_counter should update author's posts_counter" do
+    user = User.create(name: 'User 1')
+    Post.create(title: 'Post 1', author: user)
+    Post.create(title: 'Post 2', author: user)
+    Post.create(title: 'Post 3', author: user)
+    Post.create(title: 'Post 4', author: user)
+    Post.create(title: 'Post 5', author: user)
+    expect(user.posts_counter).to eq(5)
+  end
 end

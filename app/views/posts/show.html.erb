@@ -1,8 +1,8 @@
-<%= link_to user_posts_path(params[:user_id]) do %>
+<%= link_to user_posts_path(@post_author.id) do %>
   <article class="card mt-3 ms-3 me-3">
     <div class="card-body">
       <div class="d-flex justify-content-between">
-        <h5 class="card-title"><%= @post.title %> by <%= @post.author.name %></h5>
+        <h5 class="card-title"><%= @post.title %> by <%= @post_author.name %></h5>
         <p class="card-text text-end">
           <small class="text-body-secondary">
             Comments: <%= @post.comments_counter %>,
@@ -16,8 +16,7 @@
 <% end %>
 
 <section class="btn-container d-flex">
-  <% @like = User.find(params[:user_id]).likes.find_by(post_id: params[:id]) %>
-  <%= render partial: "posts/like", locals: { like: @like, user_id: params[:user_id], post_id: params[:id] } %>
+  <%= render partial: "posts/like", locals: { like: @post_like, user_id: @post_author.id, post_id: @post.id } %>
   <div class="mt-3">
     <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Add a comment
@@ -28,7 +27,7 @@
 <%= render partial: "comments/create"%>
 
 <section class="show-comments">
-  <% if @post.comments.present? %>
-    <%= render partial: "comment", locals: { comments: @post.comments } %>
+  <% if @post_comments.present? %>
+    <%= render partial: "comment", locals: { comments: @post_comments, author: @post_comment_author } %>
   <% end %>
 </section>
