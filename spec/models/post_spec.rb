@@ -48,12 +48,12 @@ RSpec.describe Post, type: :model do
   end
 
   it "update_posts_counter should update author's posts_counter" do
-    user = User.create(name: "User 1")
-    Post.create(title: "Post 1", author: user)
-    Post.create(title: "Post 2", author: user)
-    Post.create(title: "Post 3", author: user)
-    Post.create(title: "Post 4", author: user)
-    Post.create(title: "Post 5", author: user)
+    user = User.create(name: 'User 1')
+    Post.create(title: 'Post 1', author: user)
+    Post.create(title: 'Post 2', author: user)
+    Post.create(title: 'Post 3', author: user)
+    Post.create(title: 'Post 4', author: user)
+    Post.create(title: 'Post 5', author: user)
     expect(user.posts_counter).to eq(5)
   end
 end
