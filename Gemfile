@@ -80,3 +80,5 @@ end
 
 # pagination gem
 gem 'kaminari'
+
+gem 'devise', '~> 4.9'
